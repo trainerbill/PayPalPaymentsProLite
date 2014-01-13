@@ -1,7 +1,7 @@
 <?php
 namespace PayPalPaymentsProLite;
-include_once('PayFlowAPI.php');
-class CaptureTransaction extends PayFlowAPI{
+include_once(__DIR__.'/../PayFlowAPI.php');
+class SaleTransaction extends PayFlowAPI{
 
 	protected $validation_parameters;
 	
@@ -11,12 +11,13 @@ class CaptureTransaction extends PayFlowAPI{
 		$this->validation_parameters = array(
 
 			'AMT',
-			'ORIGID',
+			'ACCT',
+			'EXPDATE',
 			'TRXTYPE',
 			'TENDER',	
 		);
 		
-		$this->call_variables['TRXTYPE'] = 'D';
+		$this->call_variables['TRXTYPE'] = 'S';
 		$this->call_variables['TENDER'] = 'C';
 		
 		

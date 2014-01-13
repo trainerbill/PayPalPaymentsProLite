@@ -1,13 +1,12 @@
 <?php
-include('../src/ReferenceTransaction.php');
-use PayPalPaymentsProLite\ReferenceTransaction;
-$dcc = new ReferenceTransaction();
+include('../../src/DirectPayments/RefundTransaction.php');
+use PayPalPaymentsProLite\RefundTransaction;
+$dcc = new RefundTransaction();
 
 //Place any variables into this array:  https://www.paypalobjects.com/webstatic/en_US/developer/docs/pdf/payflowgateway_guide.pdf
 $variables = array(
 		//Get the PNREF from original transaction
 		'ORIGID' => $_GET['PNREF'],
-		'TRXTYPE' => 'S',	//Set to A for authorization
 		
 		'AMT' => '100.00',
 		'CURRENCYCODE' => 'USD',

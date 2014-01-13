@@ -16,7 +16,7 @@ class PayFlowAPI {
 	
 	public function __construct()
 	{
-		include_once '../config/config.php';
+		include_once __DIR__.'/../config/config.php';
 		if($config['environment'] == 'production')
 			$this->call_endpoint = 'https://payflowpro.paypal.com';
 		else

@@ -1,16 +1,12 @@
 <?php
-include('../src/AuthorizationTransaction.php');
-use PayPalPaymentsProLite\AuthorizationTransaction;
-$dcc = new AuthorizationTransaction();
+include('../../src/DirectPayments/VoidTransaction.php');
+use PayPalPaymentsProLite\VoidTransaction;
+$dcc = new VoidTransaction();
 
 //Place any variables into this array:  https://www.paypalobjects.com/webstatic/en_US/developer/docs/pdf/payflowgateway_guide.pdf
 $variables = array(
-		//Credit card number from getcreditcardnumbers.com
-		'ACCT' => '4532372117409864',
-		//Expiration date.  Any date in the future
-		'EXPDATE' => '1120',
-		//CVV2 Code
-		'CVV2' => '111',
+		//Get the PNREF from original transaction
+		'ORIGID' => $_GET['PNREF'],
 		
 		'AMT' => '100.00',
 		'CURRENCYCODE' => 'USD',
@@ -51,7 +47,3 @@ $decoded = $dcc->getCallResponseDecoded();
 print_r($decoded);
 ?>
 </pre>
-
-<a href="capture.php?PNREF=<?php echo $decoded['PNREF'] ?>">Capture Transaction</a>
-<a href="void.php?PNREF=<?php echo $decoded['PNREF'] ?>">Void Transaction</a>
-<a href="reference.php?PNREF=<?php echo $decoded['PNREF'] ?>">Do Reference Transaction</a>

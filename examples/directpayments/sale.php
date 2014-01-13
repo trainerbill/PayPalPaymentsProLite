@@ -1,5 +1,5 @@
 <?php
-include('../src/SaleTransaction.php');
+include('../../src/DirectPayments/SaleTransaction.php');
 use PayPalPaymentsProLite\SaleTransaction;
 $dcc = new SaleTransaction();
 
@@ -51,5 +51,6 @@ $decoded = $dcc->getCallResponseDecoded();
 print_r($decoded);
 ?>
 </pre>
-
-<a href="reference.php?PNREF=<?php echo $decoded['PNREF'] ?>">Do Reference Transaction</a>
+<a href="../index.php">Back to home</a><br/>
+<a href="reference.php?PNREF=<?php echo $decoded['PNREF'] ?>">Do Reference Transaction</a><br/>
+<a href="../recurringbilling/convert.php?PNREF=<?php echo $decoded['PNREF'] ?>">Create Recurring Billing Profile from this transaction</a>

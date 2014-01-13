@@ -1,7 +1,7 @@
 <?php
 namespace PayPalPaymentsProLite;
-include_once('PayFlowAPI.php');
-class RefundTransaction extends PayFlowAPI{
+include_once(__DIR__.'/../PayFlowAPI.php');
+class VoidTransaction extends PayFlowAPI{
 
 	protected $validation_parameters;
 	
@@ -16,8 +16,9 @@ class RefundTransaction extends PayFlowAPI{
 			'TENDER',	
 		);
 		
-		$this->call_variables['TRXTYPE'] = 'C';
+		$this->call_variables['TRXTYPE'] = 'D';
 		$this->call_variables['TENDER'] = 'C';
+		
 		
 		
 		parent::__construct();

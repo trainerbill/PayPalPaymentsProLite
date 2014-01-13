@@ -1,5 +1,5 @@
 <?php
-include('../src/CaptureTransaction.php');
+include('../../src/DirectPayments/CaptureTransaction.php');
 use PayPalPaymentsProLite\CaptureTransaction;
 $dcc = new CaptureTransaction();
 
@@ -48,5 +48,6 @@ print_r($decoded);
 ?>
 </pre>
 
-<a href="refund.php?PNREF=<?php echo $decoded['PNREF'] ?>">Refund Transaction</a>
-<a href="reference.php?PNREF=<?php echo $decoded['PNREF'] ?>">Do Reference Transaction</a>
+<a href="refund.php?PNREF=<?php echo $decoded['PNREF'] ?>">Refund Transaction</a><br/>
+<a href="reference.php?PNREF=<?php echo $decoded['PNREF'] ?>">Do Reference Transaction</a><br/>
+<a href="../recurringbilling/convert.php?PNREF=<?php echo $decoded['PNREF'] ?>">Create Recurring Billing Profile from this transaction</a>

@@ -67,7 +67,7 @@ class PayFlowAPI {
 		if(!array_key_exists('USER',$credentials))
 			throw new \Exception(__METHOD__.': argument must contain a USER key');
 		
-		if(!array_key_exists('USER',$credentials))
+		if(!array_key_exists('PWD',$credentials))
 			throw new \Exception(__METHOD__.': argument must contain a PWD key');
 		
 		$this->call_credentials = $credentials;		

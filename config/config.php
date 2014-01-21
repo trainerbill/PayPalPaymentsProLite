@@ -15,10 +15,10 @@ $config = array(
 	*/
 
 	'credentials' => array(
-		'PARTNER'	=>	'',         //Your Partner.  Usually "PayPal"
-		'VENDOR'	=>	'',         //Your Merchant login
-		'USER'	=> 		'',      		//Your user.  If you followed the directions above it will be the username you created
-		'PWD' => 		'',				//Password for the user
+		'PARTNER'	=>	'PayPal',         //Your Partner.  Usually "PayPal"
+		'VENDOR'	=>	'andrewawesome',         //Your Merchant login
+		'USER'	=> 		'andrewawesome',      		//Your user.  If you followed the directions above it will be the username you created
+		'PWD' => 		'andrewawesome1',				//Password for the user
 	),
 	
 	'environment' => 'production',

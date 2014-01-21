@@ -48,6 +48,7 @@ print_r($decoded);
 ?>
 </pre>
 
+<a href="../index.php">Back to Home</a>
 <?php 
 $callvars = $dcc->getCallVariables();
 if($callvars['TRXTYPE'] == 'S'): ?>

@@ -3,7 +3,7 @@ include('../../src/ExpressCheckout/SetExpressCheckout.php');
 use PayPalPaymentsProLite\SetExpressCheckout;
 $setec = new SetExpressCheckout();
 
-//Place any variables into this array:  https://www.paypalobjects.com/webstatic/en_US/developer/docs/pdf/payflowgateway_guide.pdf
+//Place any variables into this array:  https://www.paypalobjects.com/webstatic/en_US/developer/docs/pdf/pfp_expresscheckout_pp.pdf
 $variables = array(
 		
 		'TRXTYPE' => 'S',

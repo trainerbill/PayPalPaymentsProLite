@@ -3,6 +3,10 @@ PayPayPaymentsProLite
 
 This tutorial is provided "AS-IS" with no warranty.  YOU (the developer) would need to ensure that your code works well with your own platform, and that you are handling data securely
 
+IMPORTANT
+==========================
+When you go to production delete the examples folder.  It is outputting raw api calls that include your credentials!
+
 Setup
 ==========================
 1.  git clone https://github.com/trainerbill/PayPalPaymentsProLite.git

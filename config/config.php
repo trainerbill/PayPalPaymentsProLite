@@ -20,8 +20,10 @@ $config = array(
 		'USER'	=> 		'andrewawesome',      		//Your user.  If you followed the directions above it will be the username you created
 		'PWD' => 		'andrewawesome1',				//Password for the user
 	),
-	
-	'environment' => 'production',
+	/*
+	 * IMPORTANT:  When you go to production delete the examples folder.  It is outputting raw API CALLs
+	 */
+	'environment' => 'production',	//See Above message
 	'environment' => 'sandbox', 	//Uncomment for sandbox testing
 	
 );

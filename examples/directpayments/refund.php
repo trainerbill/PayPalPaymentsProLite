@@ -51,6 +51,9 @@ print_r($decoded);
 <a href="../index.php">Back to Home</a>
 <?php 
 $callvars = $dcc->getCallVariables();
+?>
+<a href="inquiry.php?PNREF=<?php echo $decoded['PNREF'] ?>">Inquiry Transaction</a><br />
+<?php
 if($callvars['TRXTYPE'] == 'S'): ?>
 <a href="refund.php?PNREF=<?php echo $decoded['PNREF'] ?>">Refund Transaction</a>
 <?php elseif($callvars['TRXTYPE'] == 'A') :?>

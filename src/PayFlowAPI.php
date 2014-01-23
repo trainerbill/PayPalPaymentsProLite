@@ -24,6 +24,7 @@ class PayFlowAPI {
 		
 		$this->setCredentials($config['credentials']);
 		
+		$this->call_variables['VERBOSITY'] = 'HIGH';
 		
 	}
 	

@@ -19,25 +19,26 @@ $doec->pushVariables($variables);
 //Execute the Call via CURL
 $doec->executeCall();
 
+//Get Submit String
+$sstring = $doec->getCallQuery();
+
+//Submitted Variables
+$svars = $doec->getCallVariables();
+
 //Get the response decoded into an array
-$response = $doec->getCallResponseDecoded();
+$rvars = $doec->getCallResponseDecoded();
 
 //Get the raw response
-$string = $doec->getCallResponse();
+$rstring = $doec->getCallResponse();
 
+//Get Endpoint
+$endpoint = $doec->getCallEndpoint();
+
+include(__DIR__.'/../inc/header.php');
+include(__DIR__.'/../inc/apicalloutput.php');
 ?>
-
-<h3>Submitted</h3>
-<div style="max-width:800px;word-wrap:break-word;">curl -i <?php echo $doec->getCallEndpoint() ?> -d "<?php echo $doec->getCallQuery() ?>" </div>
-
-<h3>Return String</h3>
-<div style="max-width:800px;word-wrap:break-word;"><?php echo $doec->getCallResponse() ?></div>
-
-<h3>Return Decoded</h3>
-<pre>
-<?php
-$decoded = $doec->getCallResponseDecoded();
-print_r($decoded);
-?>
-</pre>
-<a href="../index.php">Back to home</a><br/>
+<div class="row">
+	<div class="col-md-12">
+		<a class="btn btn-default" href="../index.php">Back to home</a>
+	</div>
+</div>

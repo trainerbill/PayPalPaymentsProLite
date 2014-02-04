@@ -17,26 +17,28 @@ $getec->pushVariables($variables);
 //Execute the Call via CURL
 $getec->executeCall();
 
+//Get Submit String
+$sstring = $getec->getCallQuery();
+
+//Submitted Variables
+$svars = $getec->getCallVariables();
+
 //Get the response decoded into an array
-$response = $getec->getCallResponseDecoded();
+$rvars = $getec->getCallResponseDecoded();
 
 //Get the raw response
-$string = $getec->getCallResponse();
+$rstring = $getec->getCallResponse();
 
+//Get Endpoint
+$endpoint = $getec->getCallEndpoint();
+
+include(__DIR__.'/../inc/header.php');
+include(__DIR__.'/../inc/apicalloutput.php');
 ?>
-
-<h3>Submitted</h3>
-<div style="max-width:800px;word-wrap:break-word;">curl -i <?php echo $getec->getCallEndpoint() ?> -d "<?php echo $getec->getCallQuery() ?>" </div>
-
-<h3>Return String</h3>
-<div style="max-width:800px;word-wrap:break-word;"><?php echo $getec->getCallResponse() ?></div>
-
-<h3>Return Decoded</h3>
-<pre>
-<?php
-$decoded = $getec->getCallResponseDecoded();
-print_r($decoded);
-?>
-</pre>
-<a href="../index.php">Back to home</a><br/>
-<a href="doexpresscheckout.php?token=<?php echo $_GET['token']?>&PayerID=<?php echo $_GET['PayerID']?>&AMT=<?php echo $decoded['AMT']?>">Do Express Checkout</a>
+<div class="row">
+	<div class="col-md-12">
+		<a class="btn btn-default" href="../index.php">Back to home</a>
+		<a class="btn btn-default" href="doexpresscheckout.php?token=<?php echo $_GET['token']?>&PayerID=<?php echo $_GET['PayerID']?>&AMT=<?php echo $rvars['AMT']?>">Do Express Checkout</a>
+	</div>
+</div>
+<?php include(__DIR__.'/../inc/footer.php');?>

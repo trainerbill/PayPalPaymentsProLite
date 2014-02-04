@@ -4,6 +4,7 @@ class PayFlowAPI {
 	
 	//Setup Variables
 	protected $call_endpoint;
+	protected $hosted_endpoint;
 	
 	//Call Variables
 	protected $call_credentials;
@@ -18,10 +19,15 @@ class PayFlowAPI {
 	{
 		include __DIR__.'/../config/config.php';
 		if($config['environment'] == 'production')
+		{
 			$this->call_endpoint = 'https://payflowpro.paypal.com';
+			$this->hosted_endpoint = 'https://payflowlink.paypal.com';
+		}
 		else
+		{	
 			$this->call_endpoint = 'https://pilot-payflowpro.paypal.com';
-		
+			$this->hosted_endpoint = 'https://pilot-payflowlink.paypal.com';
+		}
 		$this->setCredentials($config['credentials']);
 		
 		$this->call_variables['VERBOSITY'] = 'HIGH';
@@ -42,6 +48,11 @@ class PayFlowAPI {
 	public function getCallEndpoint()
 	{
 		return $this->call_endpoint;
+	}
+	
+	public function getHostedEndpoint()
+	{
+		return $this->hosted_endpoint;
 	}
 	
 	public function getCallQuery()

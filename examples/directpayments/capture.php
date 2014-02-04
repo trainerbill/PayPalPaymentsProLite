@@ -2,7 +2,7 @@
 include('../../src/DirectPayments/CaptureTransaction.php');
 use PayPalPaymentsProLite\CaptureTransaction;
 $dcc = new CaptureTransaction();
-
+ 
 //Place any variables into this array:  https://www.paypalobjects.com/webstatic/en_US/developer/docs/pdf/payflowgateway_guide.pdf
 $variables = array(
 		//Get the PNREF from original transaction
@@ -26,28 +26,29 @@ $dcc->pushVariables($variables);
 //Execute the Call via CURL
 $dcc->executeCall();
 
+//Get Submit String
+$sstring = $dcc->getCallQuery();
+
+//Submitted Variables
+$svars = $dcc->getCallVariables();
+
 //Get the response decoded into an array
-$response = $dcc->getCallResponseDecoded();
+$rvars = $dcc->getCallResponseDecoded();
 
 //Get the raw response
-$string = $dcc->getCallResponse();
+$rstring = $dcc->getCallResponse();
 
+//Get Endpoint
+$endpoint = $dcc->getCallEndpoint();
+
+include(__DIR__.'/../inc/header.php');
+include(__DIR__.'/../inc/apicalloutput.php');
 ?>
-
-<h3>Submitted</h3>
-<div style="max-width:800px;word-wrap:break-word;">curl -i <?php echo $dcc->getCallEndpoint() ?> -d "<?php echo $dcc->getCallQuery() ?>" </div>
-
-<h3>Return String</h3>
-<div style="max-width:800px;word-wrap:break-word;"><?php echo $dcc->getCallResponse() ?></div>
-
-<h3>Return Decoded</h3>
-<pre>
-<?php
-$decoded = $dcc->getCallResponseDecoded();
-print_r($decoded);
-?>
-</pre>
-
-<a href="refund.php?PNREF=<?php echo $decoded['PNREF'] ?>">Refund Transaction</a><br/>
-<a href="reference.php?PNREF=<?php echo $decoded['PNREF'] ?>">Do Reference Transaction</a><br/>
-<a href="../recurringbilling/convert.php?PNREF=<?php echo $decoded['PNREF'] ?>">Create Recurring Billing Profile from this transaction</a>
+<div class="row">
+	<div class="col-md-12">
+		<a class="btn btn-default" href="refund.php?PNREF=<?php echo $rvars['PNREF'] ?>">Refund Transaction</a>
+		<a class="btn btn-default" href="reference.php?PNREF=<?php echo $rvars['PNREF'] ?>">Do Reference Transaction</a>
+		<a class="btn btn-default" href="../recurringbilling/convert.php?PNREF=<?php echo $rvars['PNREF'] ?>">Create Recurring Billing Profile from this transaction</a>
+	</div>
+</div>
+<?php include(__DIR__.'/../inc/footer.php');?>

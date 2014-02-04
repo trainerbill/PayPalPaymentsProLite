@@ -20,25 +20,27 @@ $rb->pushVariables($variables);
 //Execute the Call via CURL
 $rb->executeCall();
 
+//Get Submit String
+$sstring = $rb->getCallQuery();
+
+//Submitted Variables
+$svars = $rb->getCallVariables();
+
 //Get the response decoded into an array
-$response = $rb->getCallResponseDecoded();
+$rvars = $rb->getCallResponseDecoded();
 
 //Get the raw response
-$string = $rb->getCallResponse();
+$rstring = $rb->getCallResponse();
 
+//Get Endpoint
+$endpoint = $rb->getCallEndpoint();
+
+include(__DIR__.'/../inc/header.php');
+include(__DIR__.'/../inc/apicalloutput.php');
 ?>
-
-<h3>Submitted</h3>
-<div style="max-width:800px;word-wrap:break-word;">curl -i <?php echo $rb->getCallEndpoint() ?> -d "<?php echo $rb->getCallQuery() ?>" </div>
-
-<h3>Return String</h3>
-<div style="max-width:800px;word-wrap:break-word;"><?php echo $rb->getCallResponse() ?></div>
-
-<h3>Return Decoded</h3>
-<pre>
-<?php
-$decoded = $rb->getCallResponseDecoded();
-print_r($decoded);
-?>
-</pre>
-<a href="../index.php">Back to home</a><br/>
+<div class="row">
+	<div class="col-md-12">
+		<a class="btn btn-default" href="../index.php">Back to home</a>
+	</div>
+</div>
+<?php include(__DIR__.'/../inc/footer.php');?>

@@ -32,26 +32,28 @@ $setec->pushVariables($variables);
 //Execute the Call via CURL
 $setec->executeCall();
 
+//Get Submit String
+$sstring = $setec->getCallQuery();
+
+//Submitted Variables
+$svars = $setec->getCallVariables();
+
 //Get the response decoded into an array
-$response = $setec->getCallResponseDecoded();
+$rvars = $setec->getCallResponseDecoded();
 
 //Get the raw response
-$string = $setec->getCallResponse();
+$rstring = $setec->getCallResponse();
 
+//Get Endpoint
+$endpoint = $setec->getCallEndpoint();
+
+include(__DIR__.'/../inc/header.php');
+include(__DIR__.'/../inc/apicalloutput.php');
 ?>
-
-<h3>Submitted</h3>
-<div style="max-width:800px;word-wrap:break-word;">curl -i <?php echo $setec->getCallEndpoint() ?> -d "<?php echo $setec->getCallQuery() ?>" </div>
-
-<h3>Return String</h3>
-<div style="max-width:800px;word-wrap:break-word;"><?php echo $setec->getCallResponse() ?></div>
-
-<h3>Return Decoded</h3>
-<pre>
-<?php
-$decoded = $setec->getCallResponseDecoded();
-print_r($decoded);
-?>
-</pre>
-<a href="../index.php">Back to home</a><br/>
-<a href="https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&useraction=confirm&token=<?php echo $response['TOKEN'] ?>">Redirect to PayPal</a>
+<div class="row">
+	<div class="col-md-12">
+		<a class="btn btn-default" href="../index.php">Back to home</a>
+		<a class="btn btn-default" href="https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&useraction=confirm&token=<?php echo $rvars['TOKEN'] ?>">Redirect to PayPal</a>
+	</div>
+</div>
+<?php include(__DIR__.'/../inc/footer.php');?>

@@ -26,37 +26,38 @@ $dcc->pushVariables($variables);
 //Execute the Call via CURL
 $dcc->executeCall();
 
+//Get Submit String
+$sstring = $dcc->getCallQuery();
+
+//Submitted Variables
+$svars = $dcc->getCallVariables();
+
 //Get the response decoded into an array
-$response = $dcc->getCallResponseDecoded();
+$rvars = $dcc->getCallResponseDecoded();
 
 //Get the raw response
-$string = $dcc->getCallResponse();
+$rstring = $dcc->getCallResponse();
 
+//Get Endpoint
+$endpoint = $dcc->getCallEndpoint();
+
+include(__DIR__.'/../inc/header.php');
+include(__DIR__.'/../inc/apicalloutput.php');
 ?>
-
-<h3>Submitted</h3>
-<div style="max-width:800px;word-wrap:break-word;">curl -i <?php echo $dcc->getCallEndpoint() ?> -d "<?php echo $dcc->getCallQuery() ?>" </div>
-
-<h3>Return String</h3>
-<div style="max-width:800px;word-wrap:break-word;"><?php echo $dcc->getCallResponse() ?></div>
-
-<h3>Return Decoded</h3>
-<pre>
-<?php
-$decoded = $dcc->getCallResponseDecoded();
-print_r($decoded);
-?>
-</pre>
-
-<a href="../index.php">Back to Home</a>
-<?php 
-$callvars = $dcc->getCallVariables();
-?>
-<a href="inquiry.php?PNREF=<?php echo $decoded['PNREF'] ?>">Inquiry Transaction</a><br />
-<?php
-if($callvars['TRXTYPE'] == 'S'): ?>
-<a href="refund.php?PNREF=<?php echo $decoded['PNREF'] ?>">Refund Transaction</a>
-<?php elseif($callvars['TRXTYPE'] == 'A') :?>
-<a href="capture.php?PNREF=<?php echo $decoded['PNREF'] ?>">Capture Transaction</a>
-<a href="void.php?PNREF=<?php echo $decoded['PNREF'] ?>">Void Transaction</a>
-<?php endif; ?>
+<div class="row">
+	<div class="col-md-12">
+		<a class="btn btn-default" href="../index.php">Back to Home</a>
+		<?php 
+		$callvars = $dcc->getCallVariables();
+		?>
+		<a class="btn btn-default" href="inquiry.php?PNREF=<?php echo $rvars['PNREF'] ?>">Inquiry Transaction</a><br />
+		<?php
+		if($callvars['TRXTYPE'] == 'S'): ?>
+		<a class="btn btn-default" href="refund.php?PNREF=<?php echo $rvars['PNREF'] ?>">Refund Transaction</a>
+		<?php elseif($callvars['TRXTYPE'] == 'A') :?>
+		<a class="btn btn-default" href="capture.php?PNREF=<?php echo $rvars['PNREF'] ?>">Capture Transaction</a>
+		<a class="btn btn-default" href="void.php?PNREF=<?php echo $rvars['PNREF'] ?>">Void Transaction</a>
+		<?php endif; ?>
+	</div>
+</div>
+<?php include(__DIR__.'/../inc/footer.php');?>

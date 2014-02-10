@@ -17,8 +17,8 @@ $config = array(
 	'credentials' => array(
 		'PARTNER'	=>	'PayPal',         //Your Partner.  Usually "PayPal"
 		'VENDOR'	=>	'andrewawesome',         //Your Merchant login
-		'USER'	=> 		'andrewawesome',      		//Your user.  If you followed the directions above it will be the username you created
-		'PWD' => 		'andrewawesome1',				//Password for the user
+		'USER'	=> 		'website',      		//Your user.  If you followed the directions above it will be the username you created
+		'PWD' => 		'test1234',				//Password for the user
 	),
 	/*
 	 * IMPORTANT:  When you go to production delete the examples folder.  It is outputting raw API CALLs

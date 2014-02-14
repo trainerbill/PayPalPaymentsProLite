@@ -6,7 +6,7 @@ class CreateRecurringBillingProfile extends PayFlowAPI{
 	protected $validation_parameters;
 	
 	
-	public function __construct($config)
+	public function __construct($config = null)
 	{
 		parent::__construct($config);
 		$this->validation_parameters = array(

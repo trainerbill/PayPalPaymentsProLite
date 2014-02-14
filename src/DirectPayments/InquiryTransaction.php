@@ -6,7 +6,7 @@ class InquiryTransaction extends PayFlowAPI{
 	protected $validation_parameters;
 	
 	
-	public function __construct($config)
+	public function __construct($config = null)
 	{
 		$this->validation_parameters = array(
 

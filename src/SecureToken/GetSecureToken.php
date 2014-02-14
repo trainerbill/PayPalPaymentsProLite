@@ -7,7 +7,7 @@ class GetSecureToken extends PayFlowAPI{
 	protected $validation_parameters;
 	
 	
-	public function __construct()
+	public function __construct($config)
 	{
 		$this->validation_parameters = array(
 
@@ -23,7 +23,7 @@ class GetSecureToken extends PayFlowAPI{
 		$this->call_variables['SECURETOKENID'] = md5(uniqid(rand(), true));
 		
 		
-		parent::__construct();
+		parent::__construct($config);
 	}
 	
 }

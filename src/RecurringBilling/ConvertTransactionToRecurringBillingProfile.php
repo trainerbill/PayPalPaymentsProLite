@@ -6,9 +6,9 @@ class ConvertTransactionToRecurringBillingProfile extends CreateRecurringBilling
 	protected $validation_parameters;
 	
 	
-	public function __construct()
+	public function __construct($config)
 	{
-		parent::__construct();
+		parent::__construct($config);
 		$this->validation_parameters = array(
 
 			'PROFILENAME',

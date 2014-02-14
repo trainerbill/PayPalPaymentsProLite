@@ -3,10 +3,7 @@ namespace PayPalPaymentsProLite;
 include_once(__DIR__.'/../PayFlowAPI.php');
 class SaleTransaction extends PayFlowAPI{
 
-	protected $validation_parameters;
-	
-	
-	public function __construct()
+    public function __construct($config)
 	{
 		$this->validation_parameters = array(
 
@@ -14,14 +11,14 @@ class SaleTransaction extends PayFlowAPI{
 			'ACCT',
 			'EXPDATE',
 			'TRXTYPE',
-			'TENDER',	
+			'TENDER',
 		);
-		
+
 		$this->call_variables['TRXTYPE'] = 'S';
 		$this->call_variables['TENDER'] = 'C';
-		
-		
-		parent::__construct();
+
+
+        parent::__construct($config);
 	}
-	
+
 }

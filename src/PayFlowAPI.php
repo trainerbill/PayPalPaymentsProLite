@@ -1,112 +1,112 @@
-<?php 
+<?php
 namespace PayPalPaymentsProLite;
 class PayFlowAPI {
-	
+
 	//Setup Variables
 	protected $call_endpoint;
 	protected $hosted_endpoint;
-	
+
 	//Call Variables
 	protected $call_credentials;
 	protected $call_query;
 	protected $call_variables;
 	protected $call_response;
 	protected $call_response_decoded;
-	
-	
-	
-	public function __construct()
-	{
-		include __DIR__.'/../config/config.php';
+
+  //Required Parameters
+  protected $validation_parameters;
+
+
+  public function __construct($config) {
 		if($config['environment'] == 'production')
 		{
 			$this->call_endpoint = 'https://payflowpro.paypal.com';
 			$this->hosted_endpoint = 'https://payflowlink.paypal.com';
 		}
 		else
-		{	
+		{
 			$this->call_endpoint = 'https://pilot-payflowpro.paypal.com';
 			$this->hosted_endpoint = 'https://pilot-payflowlink.paypal.com';
 		}
 		$this->setCredentials($config['credentials']);
-		
+
 		$this->call_variables['VERBOSITY'] = 'HIGH';
-		
+
 	}
-	
+
 	//GET METHODS
 	public function getCallResponse()
 	{
 		return $this->call_response;
 	}
-	
+
 	public function getCallResponseDecoded()
 	{
 		return $this->call_response_decoded;
 	}
-	
+
 	public function getCallEndpoint()
 	{
 		return $this->call_endpoint;
 	}
-	
+
 	public function getHostedEndpoint()
 	{
 		return $this->hosted_endpoint;
 	}
-	
+
 	public function getCallQuery()
 	{
 		return $this->call_query;
 	}
-	
+
 	public function getCallVariables()
 	{
 		return $this->call_variables;
 	}
-	
+
 	public function setCredentials($credentials)
 	{
 		if(!is_array($credentials))
 			throw new \Exception(__METHOD__ . ': argument must be an array.');
-		
+
 		if(!array_key_exists('PARTNER',$credentials))
 			throw new \Exception(__METHOD__.': argument must contain a PARTNER key');
-		
+
 		if(!array_key_exists('VENDOR',$credentials))
 			throw new \Exception(__METHOD__.': argument must contain a VENDOR key');
-		
+
 		if(!array_key_exists('USER',$credentials))
 			throw new \Exception(__METHOD__.': argument must contain a USER key');
-		
+
 		if(!array_key_exists('PWD',$credentials))
 			throw new \Exception(__METHOD__.': argument must contain a PWD key');
-		
-		$this->call_credentials = $credentials;		
+
+		$this->call_credentials = $credentials;
 	}
-	
+
 	public function pushVariables($variables)
 	{
 		if(!is_array($variables))
 			throw new \Exception(__METHOD__ . ': argument must be an array.');
-		
+
 		foreach($variables as $key => $value)
 		{
 			$this->call_variables[$key] = $value;
 		}
 	}
-	
+
 	public function clearVariables()
 	{
 		$this->call_variables = array();
 	}
-	
+
 	public function clearCredentials()
 	{
 		$this->call_credentials = array();
 		$this->setcredentials = false;
 	}
-	
+
 	//Worker functions
 	public function getApiString()
 	{
@@ -120,12 +120,12 @@ class PayFlowAPI {
 		$this->call_query = $string;
 		return $string;
 	}
-	
+
 	public function decodeReturn($inputdata = NULL)
 	{
 		if(!$inputdata)
 			$inputdata = $this->call_response;
-		
+
 		$data = array();
 		$key = explode('&',$inputdata);
 		foreach($key as $temp)
@@ -137,21 +137,21 @@ class PayFlowAPI {
 		$this->call_response_decoded = $data;
 		return $data;
 	}
-	
+
 	public function quickValidation()
 	{
-		
+
 		foreach($this->validation_parameters as $key )
 		{
 			if(!array_key_exists($key,$this->call_variables))
 				throw new \Exception(__METHOD__.': '.$key.' is listed as a required variable and not present in the call variables.');
 		}
 	}
-	
+
 	public function executeCall()
 	{
 		$this->quickValidation();
-		
+
 		$string = $this->getApiString();
 		$ch = curl_init ();
 		curl_setopt($ch, CURLOPT_URL,$this->call_endpoint);
@@ -163,8 +163,8 @@ class PayFlowAPI {
 		curl_setopt ($ch, CURLOPT_RETURNTRANSFER, true);
 		$this->call_response =  curl_exec($ch);		//Execute the API Call
 		$this->decodeReturn();
-		
+
 		return $this->call_response;
 	}
-	
+
 }

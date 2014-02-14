@@ -13,11 +13,13 @@ class PayFlowAPI {
 	protected $call_response;
 	protected $call_response_decoded;
 
-  //Required Parameters
-  protected $validation_parameters;
+	//Required Parameters
+	protected $validation_parameters;
 
 
-  public function __construct($config) {
+	public function __construct($config)
+	{
+		include __DIR__.'/../config/config.php';
 		if($config['environment'] == 'production')
 		{
 			$this->call_endpoint = 'https://payflowpro.paypal.com';

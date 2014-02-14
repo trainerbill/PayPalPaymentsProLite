@@ -1,8 +1,7 @@
 <?php
 include('../../src/DirectPayments/CaptureTransaction.php');
-include(__DIR__.'/../../config/config.php');
 use PayPalPaymentsProLite\CaptureTransaction;
-$dcc = new CaptureTransaction($config);
+$dcc = new CaptureTransaction();
  
 //Place any variables into this array:  https://www.paypalobjects.com/webstatic/en_US/developer/docs/pdf/payflowgateway_guide.pdf
 $variables = array(

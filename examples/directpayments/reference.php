@@ -1,8 +1,7 @@
 <?php
 include('../../src/DirectPayments/ReferenceTransaction.php');
-include(__DIR__.'/../../config/config.php');
 use PayPalPaymentsProLite\ReferenceTransaction;
-$dcc = new ReferenceTransaction($config);
+$dcc = new ReferenceTransaction();
 
 //Place any variables into this array:  https://www.paypalobjects.com/webstatic/en_US/developer/docs/pdf/payflowgateway_guide.pdf
 $variables = array(

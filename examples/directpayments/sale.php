@@ -1,8 +1,7 @@
 <?php
 include('../../src/DirectPayments/SaleTransaction.php');
-include(__DIR__.'/../../config/config.php');
 use PayPalPaymentsProLite\SaleTransaction;
-$dcc = new SaleTransaction($config);
+$dcc = new SaleTransaction();
 
 //Place any variables into this array:  https://www.paypalobjects.com/webstatic/en_US/developer/docs/pdf/payflowgateway_guide.pdf
 $variables = array(

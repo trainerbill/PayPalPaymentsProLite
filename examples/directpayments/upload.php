@@ -1,13 +1,12 @@
 <?php
 
-include(__DIR__.'/../../config/config.php');
 include('../../src/DirectPayments/UploadTransaction.php');
 use PayPalPaymentsProLite\UploadTransaction as UploadTransaction;
 include('../../src/DirectPayments/ReferenceTransaction.php');
 use PayPalPaymentsProLite\ReferenceTransaction as ReferenceTransaction;
 
-$dcc = new ReferenceTransaction($config);
-$dcu = new UploadTransaction($config);
+$dcc = new ReferenceTransaction();
+$dcu = new UploadTransaction();
 
 
 //Place any variables into this array:  https://www.paypalobjects.com/webstatic/en_US/developer/docs/pdf/payflowgateway_guide.pdf

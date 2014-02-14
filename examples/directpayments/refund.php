@@ -1,8 +1,7 @@
 <?php
 include('../../src/DirectPayments/RefundTransaction.php');
-include(__DIR__.'/../../config/config.php');
 use PayPalPaymentsProLite\RefundTransaction;
-$dcc = new RefundTransaction($config);
+$dcc = new RefundTransaction();
 
 //Place any variables into this array:  https://www.paypalobjects.com/webstatic/en_US/developer/docs/pdf/payflowgateway_guide.pdf
 $variables = array(

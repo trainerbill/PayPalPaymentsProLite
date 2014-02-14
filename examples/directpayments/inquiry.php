@@ -1,10 +1,9 @@
 <?php
 
 include('../../src/DirectPayments/InquiryTransaction.php');
-include(__DIR__.'/../../config/config.php');
 use PayPalPaymentsProLite\InquiryTransaction as InquiryTransaction;
 
-$dcc = new InquiryTransaction($config);
+$dcc = new InquiryTransaction();
 
 //Place any variables into this array:  https://www.paypalobjects.com/webstatic/en_US/developer/docs/pdf/payflowgateway_guide.pdf
 

@@ -1,7 +1,10 @@
 PayPayPaymentsProLite
 ==========================
-
 This tutorial is provided "AS-IS" with no warranty.  YOU (the developer) would need to ensure that your code works well with your own platform, and that you are handling data securely
+
+Demo
+==========================
+http://www.mystartupsolutions.com/clients/paypal/PayPalPaymentsProLite/examples/
 
 IMPORTANT
 ==========================
@@ -13,8 +16,6 @@ Setup
 2.  Edit config/config.php
 3.  Presto.
 4.  go to /examples/ to see examples
-
-
 
 Goals
 ==========================

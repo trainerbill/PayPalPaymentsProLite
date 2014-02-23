@@ -10,8 +10,15 @@ class AuthorizationTest extends \PHPUnit_Framework_TestCase
 		//Test instance
 		$this->assertTrue($auth instanceof PayFlowAPI);
 		$this->assertTrue($auth instanceof AuthorizationTransaction);
-	
+		
+		//Test validation parameters
 		$this->assertNotEmpty($auth->getValidationParameters());
+		
+		$variables = $auth->getCallVariables();
+		//Test default values
+		$this->assertEquals($variables['TRXTYPE'],'A');
+		$this->assertEquals($variables['TENDER'],'C');
+		
 	}
 	
 	

@@ -5,6 +5,7 @@ class PayFlowAPI {
 	//Setup Variables
 	protected $call_endpoint;
 	protected $hosted_endpoint;
+	protected $environment;
 	
 	//Call Variables
 	protected $call_credentials;
@@ -18,6 +19,7 @@ class PayFlowAPI {
 	public function __construct()
 	{
 		include __DIR__.'/../config/config.php';
+		$this->environment = $config['environment'];
 		if($config['environment'] == 'production')
 		{
 			$this->call_endpoint = 'https://payflowpro.paypal.com';
@@ -65,6 +67,16 @@ class PayFlowAPI {
 		return $this->call_variables;
 	}
 	
+	public function getCredentials()
+	{
+		return $this->call_credentials;
+	}
+	
+	public function getEnvironment()
+	{
+		return $this->environment;
+	}
+	
 	public function setCredentials($credentials)
 	{
 		if(!is_array($credentials))
@@ -82,7 +94,8 @@ class PayFlowAPI {
 		if(!array_key_exists('PWD',$credentials))
 			throw new \Exception(__METHOD__.': argument must contain a PWD key');
 		
-		$this->call_credentials = $credentials;		
+		$this->call_credentials = $credentials;
+		return $this->call_credentials;	
 	}
 	
 	public function pushVariables($variables)
@@ -94,6 +107,7 @@ class PayFlowAPI {
 		{
 			$this->call_variables[$key] = $value;
 		}
+		return $this->call_variables;
 	}
 	
 	public function clearVariables()
@@ -104,7 +118,6 @@ class PayFlowAPI {
 	public function clearCredentials()
 	{
 		$this->call_credentials = array();
-		$this->setcredentials = false;
 	}
 	
 	//Worker functions

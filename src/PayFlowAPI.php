@@ -6,6 +6,7 @@ class PayFlowAPI {
 	protected $call_endpoint;
 	protected $hosted_endpoint;
 	protected $environment;
+	protected $validation_parameters;
 	
 	//Call Variables
 	protected $call_credentials;
@@ -75,6 +76,11 @@ class PayFlowAPI {
 	public function getEnvironment()
 	{
 		return $this->environment;
+	}
+	
+	public function getValidationParameters()
+	{
+		return $this->validation_parameters;
 	}
 	
 	public function setCredentials($credentials)
@@ -153,11 +159,13 @@ class PayFlowAPI {
 	
 	public function quickValidation()
 	{
-		
-		foreach($this->validation_parameters as $key )
+		if($this->validation_parameters && is_array($this->validation_parameters))
 		{
-			if(!array_key_exists($key,$this->call_variables))
-				throw new \Exception(__METHOD__.': '.$key.' is listed as a required variable and not present in the call variables.');
+			foreach($this->validation_parameters as $key )
+			{
+				if(!array_key_exists($key,$this->call_variables))
+					throw new \Exception(__METHOD__.': '.$key.' is listed as a required variable and not present in the call variables.');
+			}
 		}
 	}
 	

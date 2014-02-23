@@ -15,11 +15,13 @@ class PayFlowAPITest extends \PHPUnit_Framework_TestCase
 		$this->assertObjectHasAttribute('call_endpoint',$pf);
 		$this->assertObjectHasAttribute('hosted_endpoint',$pf);
 		$this->assertObjectHasAttribute('environment',$pf);
+		$this->assertObjectHasAttribute('validation_parameters',$pf);
 		$this->assertObjectHasAttribute('call_credentials',$pf);
 		$this->assertObjectHasAttribute('call_query',$pf);
 		$this->assertObjectHasAttribute('call_variables',$pf);
 		$this->assertObjectHasAttribute('call_response',$pf);
 		$this->assertObjectHasAttribute('call_response_decoded',$pf);
+		
 		
 		
 	}
@@ -134,9 +136,21 @@ class PayFlowAPITest extends \PHPUnit_Framework_TestCase
 			'OKIE'=>'dokie',
 			'VERBOSITY'=>'HIGH'
 		));
+	}
+	
+	public function testExecuteCall()
+	{
+		$pf = new PayFlowAPI();
+		$pf->executeCall();
 		
+		//Test responses
+		$this->assertNotEmpty($pf->getCallResponse());
+		$this->assertNotEmpty($pf->getCallResponseDecoded());
 		
+		$response = $pf->getCallResponseDecoded();
 		
+		//Test PayPal Response.  We should get user authentication error.
+		$this->assertEquals($response['RESULT'],1);
 	}
 	
 }

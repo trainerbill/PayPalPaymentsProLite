@@ -1,6 +1,7 @@
 <?php
+namespace PayPalPaymentsProLite\ExpressCheckout;
 include('../../src/ExpressCheckout/DoExpressCheckout.php');
-use PayPalPaymentsProLite\DoExpressCheckout;
+use PayPalPaymentsProLite\ExpressCheckout\DoExpressCheckout;
 $doec = new DoExpressCheckout();
 
 //Place any variables into this array:  https://www.paypalobjects.com/webstatic/en_US/developer/docs/pdf/pfp_expresscheckout_pp.pdf

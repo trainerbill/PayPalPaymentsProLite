@@ -21,6 +21,12 @@ $config = array(
 	'environment' => 'production',	//See Above message
 	'environment' => 'sandbox', 	//Uncomment for sandbox testing
 	
+	//Express Checkout Configuration
+	'expresscheckout' => array(
+			'experience' => 'redirect',		//Values are "redirect" for the classic redirect or "lightbox" for lightbox
+			'useraction' => 'confirm',		//Values are "confirm" and "commit".  Confirm is recommended.  Commit is a PayNow process and executes the DoCall without redirect.
+	),
+	
 );
 
 include('credentials.php');

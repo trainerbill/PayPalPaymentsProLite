@@ -1,6 +1,7 @@
 <?php
-namespace PayPalPaymentsProLite;
+namespace PayPalPaymentsProLite\RecurringBilling;
 include_once(__DIR__.'/../PayFlowAPI.php');
+use PayPalPaymentsProLite\PayFlowAPI;
 class CreateRecurringBillingProfile extends PayFlowAPI{
 
 	protected $validation_parameters;

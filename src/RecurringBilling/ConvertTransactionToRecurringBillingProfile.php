@@ -1,6 +1,7 @@
 <?php
-namespace PayPalPaymentsProLite;
+namespace PayPalPaymentsProLite\RecurringBilling;
 include_once('CreateRecurringBillingProfile.php');
+use PayPalPaymentsProLite\RecurringBilling\CreateRecurringBillingProfile;
 class ConvertTransactionToRecurringBillingProfile extends CreateRecurringBillingProfile{
 
 	protected $validation_parameters;

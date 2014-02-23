@@ -1,7 +1,7 @@
 <?php 
 $config['credentials'] = array(
-	'PARTNER'	=>	'',         //Your Partner.  Usually "PayPal"
-	'VENDOR'	=>	'',         //Your Merchant login
-	'USER'	=> 		'',      	//Your user.  If you followed the directions above it will be the username you created
-	'PWD' => 		'',			//Password for the user
+	'PARTNER'	=>	'PayPal',         	//Your Partner.  Usually "PayPal"
+	'VENDOR'	=>	'andrewawesome',    //Your Merchant login
+	'USER'	=> 		'website',      	//Your user.  If you followed the directions above it will be the username you created
+	'PWD' => 		'test1234',			//Password for the user
 );

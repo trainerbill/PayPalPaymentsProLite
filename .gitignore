@@ -1,4 +1,3 @@
 .project
 vendor
 composer.lock
-config/credentials.php

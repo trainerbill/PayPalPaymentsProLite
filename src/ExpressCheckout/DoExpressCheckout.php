@@ -6,7 +6,7 @@ class DoExpressCheckout extends PayFlowAPI{
 	protected $validation_parameters;
 	
 	
-	public function __construct()
+	public function __construct($config = null)
 	{
 		$this->validation_parameters = array(
 
@@ -23,7 +23,7 @@ class DoExpressCheckout extends PayFlowAPI{
 		$this->call_variables['VERBOSITY'] = 'HIGH';
 		
 		
-		parent::__construct();
+		parent::__construct($config);
 	}
 	
 }

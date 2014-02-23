@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace PayPalPaymentsProLite;
 class PayFlowAPI {
 	
@@ -13,11 +13,18 @@ class PayFlowAPI {
 	protected $call_response;
 	protected $call_response_decoded;
 	
+	//Required Parameters
+	protected $validation_parameters;
 	
 	
-	public function __construct()
+	public function __construct($config = null)
 	{
-		include __DIR__.'/../config/config.php';
+        // if no config load the config file
+		if(is_null($config))
+		{
+			include __DIR__.'/../config/config.php';
+		}
+
 		if($config['environment'] == 'production')
 		{
 			$this->call_endpoint = 'https://payflowpro.paypal.com';

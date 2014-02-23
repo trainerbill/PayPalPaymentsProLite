@@ -3,10 +3,9 @@ namespace PayPalPaymentsProLite;
 include_once(__DIR__.'/../PayFlowAPI.php');
 class VoidTransaction extends PayFlowAPI{
 
-	protected $validation_parameters;
 	
 	
-	public function __construct()
+	public function __construct($config = null)
 	{
 		$this->validation_parameters = array(
 
@@ -20,8 +19,7 @@ class VoidTransaction extends PayFlowAPI{
 		$this->call_variables['TENDER'] = 'C';
 		
 		
-		
-		parent::__construct();
+		parent::__construct($config);
 	}
 	
 }

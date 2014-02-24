@@ -4,10 +4,7 @@ include_once(__DIR__.'/../PayFlowAPI.php');
 use PayPalPaymentsProLite\PayFlowAPI;
 class SaleTransaction extends PayFlowAPI{
 
-	protected $validation_parameters;
-	
-	
-	public function __construct()
+	public function __construct($config = null)
 	{
 		$this->validation_parameters = array(
 
@@ -22,7 +19,7 @@ class SaleTransaction extends PayFlowAPI{
 		$this->call_variables['TENDER'] = 'C';
 		
 		
-		parent::__construct();
+		parent::__construct($config);
 	}
 	
 }

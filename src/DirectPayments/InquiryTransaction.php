@@ -1,6 +1,7 @@
-<?php
-namespace PayPalPaymentsProLite;
+<?php 
+namespace PayPalPaymentsProLite\DirectPayments;
 include_once(__DIR__.'/../PayFlowAPI.php');
+use PayPalPaymentsProLite\PayFlowAPI;
 class InquiryTransaction extends PayFlowAPI{
 
 	protected $validation_parameters;

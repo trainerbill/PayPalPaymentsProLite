@@ -1,6 +1,7 @@
 <?php
-namespace PayPalPaymentsProLite;
+namespace PayPalPaymentsProLite\ExpressCheckout;
 include_once(__DIR__.'/../PayFlowAPI.php');
+use PayPalPaymentsProLite\PayFlowAPI;
 class DoExpressCheckout extends PayFlowAPI{
 
 	protected $validation_parameters;
@@ -20,7 +21,6 @@ class DoExpressCheckout extends PayFlowAPI{
 		
 		$this->call_variables['TENDER'] = 'P';
 		$this->call_variables['ACTION'] = 'D';
-		$this->call_variables['VERBOSITY'] = 'HIGH';
 		
 		
 		parent::__construct($config);

@@ -1,6 +1,6 @@
 <?php
 include('../../src/DirectPayments/SaleTransaction.php');
-use PayPalPaymentsProLite\SaleTransaction;
+use PayPalPaymentsProLite\DirectPayments\SaleTransaction;
 $dcc = new SaleTransaction();
 
 //Place any variables into this array:  https://www.paypalobjects.com/webstatic/en_US/developer/docs/pdf/payflowgateway_guide.pdf

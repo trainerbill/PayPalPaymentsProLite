@@ -5,17 +5,15 @@ class PayFlowAPI {
 	//Setup Variables
 	protected $call_endpoint;
 	protected $hosted_endpoint;
+	protected $environment;
+	protected $validation_parameters;
 	
 	//Call Variables
 	protected $call_credentials;
 	protected $call_query;
 	protected $call_variables;
 	protected $call_response;
-	protected $call_response_decoded;
-	
-	//Required Parameters
-	protected $validation_parameters;
-	
+	protected $call_response_decoded;	
 	
 	public function __construct($config = null)
 	{
@@ -25,6 +23,7 @@ class PayFlowAPI {
 			include __DIR__.'/../config/config.php';
 		}
 
+		$this->environment = $config['environment'];
 		if($config['environment'] == 'production')
 		{
 			$this->call_endpoint = 'https://payflowpro.paypal.com';
@@ -72,6 +71,21 @@ class PayFlowAPI {
 		return $this->call_variables;
 	}
 	
+	public function getCredentials()
+	{
+		return $this->call_credentials;
+	}
+	
+	public function getEnvironment()
+	{
+		return $this->environment;
+	}
+	
+	public function getValidationParameters()
+	{
+		return $this->validation_parameters;
+	}
+	
 	public function setCredentials($credentials)
 	{
 		if(!is_array($credentials))
@@ -89,7 +103,8 @@ class PayFlowAPI {
 		if(!array_key_exists('PWD',$credentials))
 			throw new \Exception(__METHOD__.': argument must contain a PWD key');
 		
-		$this->call_credentials = $credentials;		
+		$this->call_credentials = $credentials;
+		return $this->call_credentials;	
 	}
 	
 	public function pushVariables($variables)
@@ -101,6 +116,7 @@ class PayFlowAPI {
 		{
 			$this->call_variables[$key] = $value;
 		}
+		return $this->call_variables;
 	}
 	
 	public function clearVariables()
@@ -111,7 +127,6 @@ class PayFlowAPI {
 	public function clearCredentials()
 	{
 		$this->call_credentials = array();
-		$this->setcredentials = false;
 	}
 	
 	//Worker functions
@@ -147,11 +162,13 @@ class PayFlowAPI {
 	
 	public function quickValidation()
 	{
-		
-		foreach($this->validation_parameters as $key )
+		if($this->validation_parameters && is_array($this->validation_parameters))
 		{
-			if(!array_key_exists($key,$this->call_variables))
-				throw new \Exception(__METHOD__.': '.$key.' is listed as a required variable and not present in the call variables.');
+			foreach($this->validation_parameters as $key )
+			{
+				if(!array_key_exists($key,$this->call_variables))
+					throw new \Exception(__METHOD__.': '.$key.' is listed as a required variable and not present in the call variables.');
+			}
 		}
 	}
 	

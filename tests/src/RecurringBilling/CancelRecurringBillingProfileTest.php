@@ -1,0 +1,54 @@
+<?php
+namespace PayPalPaymentsProLite\RecurringBilling;
+require_once(__DIR__.'/../../../src/RecurringBilling/CancelRecurringBillingProfile.php');
+require_once(__DIR__.'/../../../src/RecurringBilling/CreateRecurringBillingProfile.php');
+
+class CancelRecurringBillingProfileTest extends \PHPUnit_Framework_TestCase
+{
+	public function testObjectConstruction()
+	{
+		$rb = new CancelRecurringBillingProfile();
+		//Test instance
+		$this->assertTrue($rb instanceof CancelRecurringBillingProfile);
+		
+		//Test validation parameters
+		$this->assertNotEmpty($rb->getValidationParameters());
+		
+		$variables = $rb->getCallVariables();
+		//Test default values
+		$this->assertEquals($variables['TRXTYPE'],'R');
+		$this->assertEquals($variables['ACTION'],'C');
+		//$this->assertEquals($variables['TENDER'],'C');
+		
+	}
+	
+	public function testExecuteCall()
+	{
+		$rb = new CreateRecurringBillingProfile();
+		$variables = array(
+			'ACCT' => '4532372117409864',				
+			'EXPDATE' => '1120',						
+			'CVV2' => '111',							
+			'AMT' => '100.00',
+			'CURRENCYCODE' => 'USD',
+			'PROFILENAME'=>'MyRecurringProfileName',	
+			'START' => date('mdY',strtotime('+1month')),
+			'TERM'  =>	0,								
+			'PAYPERIOD' => 'MONT',						
+		);
+		$rb->pushVariables($variables);
+		$rb->executeCall();
+		$response = $rb->getCallResponseDecoded();
+		
+		$rb = new CancelRecurringBillingProfile();
+		$variables = array(
+			'ORIGPROFILEID' => $response['PROFILEID']		
+		);
+		$rb->pushVariables($variables);
+		$rb->executeCall();
+		$response = $rb->getCallResponseDecoded();
+		$this->assertEquals($response['RESULT'],0);
+	}
+	
+	
+}

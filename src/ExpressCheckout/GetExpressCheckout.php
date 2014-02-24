@@ -1,6 +1,7 @@
 <?php
-namespace PayPalPaymentsProLite;
+namespace PayPalPaymentsProLite\ExpressCheckout;
 include_once(__DIR__.'/../PayFlowAPI.php');
+use PayPalPaymentsProLite\PayFlowAPI;
 class GetExpressCheckout extends PayFlowAPI{
 
 	protected $validation_parameters;

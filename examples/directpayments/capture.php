@@ -1,6 +1,6 @@
 <?php
 include('../../src/DirectPayments/CaptureTransaction.php');
-use PayPalPaymentsProLite\CaptureTransaction;
+use PayPalPaymentsProLite\DirectPayments\CaptureTransaction;
 $dcc = new CaptureTransaction();
  
 //Place any variables into this array:  https://www.paypalobjects.com/webstatic/en_US/developer/docs/pdf/payflowgateway_guide.pdf

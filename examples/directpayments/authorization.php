@@ -1,6 +1,6 @@
 <?php
 include('../../src/DirectPayments/AuthorizationTransaction.php');
-use PayPalPaymentsProLite\AuthorizationTransaction;
+use PayPalPaymentsProLite\DirectPayments\AuthorizationTransaction;
 $dcc = new AuthorizationTransaction();
 
 //Place any variables into this array:  https://www.paypalobjects.com/webstatic/en_US/developer/docs/pdf/payflowgateway_guide.pdf

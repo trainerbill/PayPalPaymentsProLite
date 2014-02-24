@@ -1,6 +1,6 @@
 <?php
 include('../../src/RecurringBilling/ConvertTransactionToRecurringBillingProfile.php');
-use PayPalPaymentsProLite\ConvertTransactionToRecurringBillingProfile;
+use PayPalPaymentsProLite\RecurringBilling\ConvertTransactionToRecurringBillingProfile;
 $rb = new ConvertTransactionToRecurringBillingProfile();
 
 //You need to have a PNREF set.  Check URL Param first

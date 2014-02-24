@@ -14,16 +14,19 @@ $config = array(
 		9.  Click Update
 	*/
 
-	'credentials' => array(
-		'PARTNER'	=>	'PayPal',         //Your Partner.  Usually "PayPal"
-		'VENDOR'	=>	'andrewawesome',         //Your Merchant login
-		'USER'	=> 		'website',      		//Your user.  If you followed the directions above it will be the username you created
-		'PWD' => 		'test1234',				//Password for the user
-	),
+	
 	/*
 	 * IMPORTANT:  When you go to production delete the examples folder.  It is outputting raw API CALLs
 	 */
 	'environment' => 'production',	//See Above message
 	'environment' => 'sandbox', 	//Uncomment for sandbox testing
 	
+	//Express Checkout Configuration
+	'expresscheckout' => array(
+			'experience' => 'redirect',		//Values are "redirect" for the classic redirect or "lightbox" for lightbox
+			'useraction' => 'confirm',		//Values are "confirm" and "commit".  Confirm is recommended.  Commit is a PayNow process and executes the DoCall without redirect.
+	),
+	
 );
+
+include('credentials.php');

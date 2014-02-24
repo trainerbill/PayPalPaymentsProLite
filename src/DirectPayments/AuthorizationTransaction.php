@@ -1,6 +1,7 @@
 <?php
-namespace PayPalPaymentsProLite;
+namespace PayPalPaymentsProLite\DirectPayments;
 include_once(__DIR__.'/../PayFlowAPI.php');
+use PayPalPaymentsProLite\PayFlowAPI;
 class AuthorizationTransaction extends PayFlowAPI{
 
 	

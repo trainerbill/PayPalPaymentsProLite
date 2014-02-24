@@ -1,6 +1,6 @@
 <?php
 include('../../src/DirectPayments/VoidTransaction.php');
-use PayPalPaymentsProLite\VoidTransaction;
+use PayPalPaymentsProLite\DirectPayments\VoidTransaction;
 $dcc = new VoidTransaction();
 
 //Place any variables into this array:  https://www.paypalobjects.com/webstatic/en_US/developer/docs/pdf/payflowgateway_guide.pdf

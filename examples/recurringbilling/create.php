@@ -1,6 +1,6 @@
 <?php
 include('../../src/RecurringBilling/CreateRecurringBillingProfile.php');
-use PayPalPaymentsProLite\CreateRecurringBillingProfile;
+use PayPalPaymentsProLite\RecurringBilling\CreateRecurringBillingProfile;
 $rb = new CreateRecurringBillingProfile();
 
 //Place any variables into this array:  https://www.paypalobjects.com/webstatic/en_US/developer/docs/pdf/pp_wpppf_recurringbilling_guide.pdf

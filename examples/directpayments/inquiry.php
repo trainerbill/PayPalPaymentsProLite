@@ -1,7 +1,7 @@
 <?php
 
 include('../../src/DirectPayments/InquiryTransaction.php');
-use PayPalPaymentsProLite\InquiryTransaction as InquiryTransaction;
+use PayPalPaymentsProLite\DirectPayments\InquiryTransaction as InquiryTransaction;
 
 $dcc = new InquiryTransaction();
 

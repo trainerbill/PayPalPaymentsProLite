@@ -1,6 +1,6 @@
 <?php
 include('../../src/RecurringBilling/CancelRecurringBillingProfile.php');
-use PayPalPaymentsProLite\CancelRecurringBillingProfile;
+use PayPalPaymentsProLite\RecurringBilling\CancelRecurringBillingProfile;
 $rb = new CancelRecurringBillingProfile();
 
 //You need to have a PNREF set.  Check URL Param first

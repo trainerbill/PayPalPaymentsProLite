@@ -1,9 +1,9 @@
 <?php
 
 include('../../src/DirectPayments/UploadTransaction.php');
-use PayPalPaymentsProLite\UploadTransaction as UploadTransaction;
+use PayPalPaymentsProLite\DirectPayments\UploadTransaction as UploadTransaction;
 include('../../src/DirectPayments/ReferenceTransaction.php');
-use PayPalPaymentsProLite\ReferenceTransaction as ReferenceTransaction;
+use PayPalPaymentsProLite\DirectPayments\ReferenceTransaction as ReferenceTransaction;
 
 $dcc = new ReferenceTransaction();
 $dcu = new UploadTransaction();

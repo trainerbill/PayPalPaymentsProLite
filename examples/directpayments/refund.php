@@ -8,16 +8,6 @@ $variables = array(
 		//Get the PNREF from original transaction
 		'ORIGID' => $_GET['PNREF'],
 		
-		'AMT' => '100.00',
-		'CURRENCYCODE' => 'USD',
-
-		//Set userid as custom field
-		'CUSTOM' => 'This is a test',
-
-		//Line Items
-		'L_NAME0' => 'Test Item',
-		'L_DESC0' => 'Teset ITem desc',
-		'L_AMT0' => '100.00',
 );
 
 //Place the variables onto the stack

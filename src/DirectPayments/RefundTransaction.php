@@ -8,7 +8,6 @@ class RefundTransaction extends PayFlowAPI{
 	{
 		$this->validation_parameters = array(
 
-			'AMT',
 			'ORIGID',
 			'TRXTYPE',
 			'TENDER',

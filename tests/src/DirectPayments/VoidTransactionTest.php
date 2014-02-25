@@ -37,8 +37,7 @@ class VoidTest extends \PHPUnit_Framework_TestCase
 		$void = new VoidTransaction();
 		$variables = array(
 			'ORIGID' => $response['PNREF'],
-			'AMT' => '3.00',
-			'CURRENCYCODE' => 'USD',
+			
 		);
 		$void->pushVariables($variables);
 		$void->executeCall();

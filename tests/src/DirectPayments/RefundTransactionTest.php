@@ -49,7 +49,6 @@ class RefundTest extends \PHPUnit_Framework_TestCase
 		$refund = new RefundTransaction();
 		$variables = array(
 			'ORIGID'=>$response['PNREF'],
-			'AMT' => '3.00'		
 		);
 		$refund->pushVariables($variables);
 		$refund->executeCall();

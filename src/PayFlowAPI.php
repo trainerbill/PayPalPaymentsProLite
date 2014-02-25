@@ -1,4 +1,4 @@
-<?php 
+<?php
 namespace PayPalPaymentsProLite;
 class PayFlowAPI {
 	
@@ -13,13 +13,16 @@ class PayFlowAPI {
 	protected $call_query;
 	protected $call_variables;
 	protected $call_response;
-	protected $call_response_decoded;
+	protected $call_response_decoded;	
 	
-	
-	
-	public function __construct()
+	public function __construct($config = null)
 	{
-		include __DIR__.'/../config/config.php';
+        // if no config load the config file
+		if(is_null($config))
+		{
+			include __DIR__.'/../config/config.php';
+		}
+
 		$this->environment = $config['environment'];
 		if($config['environment'] == 'production')
 		{

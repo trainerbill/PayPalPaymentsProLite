@@ -7,7 +7,7 @@ class SetExpressCheckout extends PayFlowAPI{
 	protected $validation_parameters;
 	
 	
-	public function __construct()
+	public function __construct($config = null)
 	{
 		$this->validation_parameters = array(
 
@@ -25,7 +25,7 @@ class SetExpressCheckout extends PayFlowAPI{
 		$this->call_variables['ACTION'] = 'S';
 		
 		
-		parent::__construct();
+		parent::__construct($config);
 	}
 	
 }

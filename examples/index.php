@@ -20,6 +20,7 @@
 	<div class="col-md-12">
 		<h3>Express Checkout</h3>
 		<div><a href="expresscheckout/setexpresscheckout.php">Set Express Checkout</a></div>
+		<div><a href="expresscheckout/billmelater/setexpresscheckout.php">Set Express Checkout - Bill Me Later</a></div>
 	</div>
 </div>
 

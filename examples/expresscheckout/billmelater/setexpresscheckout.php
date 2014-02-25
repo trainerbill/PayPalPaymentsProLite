@@ -1,8 +1,8 @@
 <?php
-namespace PayPalPaymentsProLite\ExpressCheckout;
-include('../../src/ExpressCheckout/SetExpressCheckout.php');
-use PayPalPaymentsProLite\ExpressCheckout\SetExpressCheckout;
-$setec = new SetExpressCheckout();
+namespace PayPalPaymentsProLite\ExpressCheckout\BillMeLater;
+include('../../../src/ExpressCheckout/BillMeLater/SetExpressCheckoutBML.php');
+use PayPalPaymentsProLite\ExpressCheckout\BillMeLater\SetExpressCheckoutBML;
+$setec = new SetExpressCheckoutBML();
 
 //Place any variables into this array:  https://www.paypalobjects.com/webstatic/en_US/developer/docs/pdf/pfp_expresscheckout_pp.pdf
 $variables = array(
@@ -48,13 +48,13 @@ $rstring = $setec->getCallResponse();
 //Get Endpoint
 $endpoint = $setec->getCallEndpoint();
 
-include(__DIR__.'/../inc/header.php');
-include(__DIR__.'/../inc/apicalloutput.php');
+include(__DIR__.'/../../inc/header.php');
+include(__DIR__.'/../../inc/apicalloutput.php');
 ?>
 <div class="row">
 	<div class="col-md-12">
 		<a class="btn btn-default" href="../index.php">Back to home</a>
-		<a href="https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&useraction=<?php echo $setec->expresscheckout_settings['useraction'] ?>&token=<?php echo $rvars['TOKEN'] ?>"><img src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" /></a>
+		<a href="https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&useraction=confirm&token=<?php echo $rvars['TOKEN'] ?>"><img src="https://www.paypalobjects.com/webstatic/en_US/btn/btn_bml_SM.png" alt="BML" /></a>
 	</div>
 </div>
-<?php include(__DIR__.'/../inc/footer.php');?>
+<?php include(__DIR__.'/../../inc/footer.php');?>

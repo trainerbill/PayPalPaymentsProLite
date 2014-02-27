@@ -1,3 +1,7 @@
+<?php 
+//Get script info
+$home = preg_match('/(.*examples)/',$_SERVER['SCRIPT_NAME'],$matches);
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,12 +21,12 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/PayPalPaymentsProLite/examples">PayPal Payments Pro Lite Examples</a>
+                    <a class="navbar-brand" href="<?php echo $matches[0] ?>">PayPal Payments Pro Lite Examples</a>
                 </div>
             
 	            <div class="collapse navbar-collapse">
 		            <ul class="nav navbar-nav">
-		                <li><a href="/PayPalPaymentsProLite/examples">Home</a></li>
+		                <li><a href="<?php echo $matches[0] ?>">Home</a></li>
 		            </ul>
 		        </div>
 	        </div>

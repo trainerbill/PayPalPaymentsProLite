@@ -12,8 +12,8 @@ $variables = array(
 		'CURRENCYCODE' => 'USD',
 		
 		//URLS
-		'RETURNURL' => 'http://'.$_SERVER['HTTP_HOST'].'/PayPalPaymentsProLite/examples/expresscheckout/getexpresscheckout.php',
-		'CANCELURL' => 'http://'.$_SERVER['HTTP_HOST'].'/PayPalPaymentsProLite/examples/expresscheckout/cancel.php',
+		'RETURNURL' => 'http://'.$_SERVER['HTTP_HOST'].preg_replace('/billmelater\/setexpresscheckout.php/','getexpresscheckout.php',$_SERVER['SCRIPT_NAME']),
+		'CANCELURL' => 'http://'.$_SERVER['HTTP_HOST'].preg_replace('/billmelater\/setexpresscheckout.php/','cancel.php',$_SERVER['SCRIPT_NAME']),
 
 		//Set userid as custom field
 		'CUSTOM' => 'This is a test',

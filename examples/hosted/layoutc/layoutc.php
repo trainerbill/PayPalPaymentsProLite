@@ -48,6 +48,14 @@ include(__DIR__.'/../../inc/header.php');
 
 <?php include(__DIR__.'/../../inc/apicalloutput.php'); ?>
 
+<div class="row">
+	<div class="col-md-12">
+		<h3>Embedded Iframe Code</h3>
+		<pre>
+			&lt;iframe src="<?php echo $gettok->getHostedEndpoint(); ?>?SECURETOKEN=<?php echo $rvars['SECURETOKEN'] ?>&SECURETOKENID=<?php echo $rvars['SECURETOKENID'] ?>" width="490" height="565" border="0" frameborder="0" scrolling="no" allowtransparency="true"&gt;&lt;/iframe&gt;
+		</pre>
+	</div>
+</div>
 
 <!-- GET IFRAME -->
 <iframe src="<?php echo $gettok->getHostedEndpoint(); ?>?SECURETOKEN=<?php echo $rvars['SECURETOKEN'] ?>&SECURETOKENID=<?php echo $rvars['SECURETOKENID'] ?>" width="490" height="565" border="0" frameborder="0" scrolling="no" allowtransparency="true"></iframe>

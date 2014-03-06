@@ -14,7 +14,7 @@ class ConvertTransactionToRecurringBillingProfile extends CreateRecurringBilling
 
 			'PROFILENAME',
 			'AMT',
-			'ORIGID',
+			'TENDER',
 			'START',
 			'PAYPERIOD',
 			'TERM',	

@@ -3,16 +3,12 @@ include('../../src/RecurringBilling/ConvertTransactionToRecurringBillingProfile.
 use PayPalPaymentsProLite\RecurringBilling\ConvertTransactionToRecurringBillingProfile;
 $rb = new ConvertTransactionToRecurringBillingProfile();
 
-//You need to have a PNREF set.  Check URL Param first
-if(isset($_GET['PNREF']))
-	$pnref = $_GET['PNREF'];
-else
-	$pnref = ''; //MANUALLY SET PNREF
+
 
 //Place any variables into this array:  https://www.paypalobjects.com/webstatic/en_US/developer/docs/pdf/pp_wpppf_recurringbilling_guide.pdf
 $variables = array(
 		
-		'ORIGID' => $pnref,
+		
 		'AMT' => '100.00',
 		'CURRENCYCODE' => 'USD',
 		'PROFILENAME'=>'MyRecurringProfileName',	//Name this something unique to the customer
@@ -20,6 +16,18 @@ $variables = array(
 		'TERM'  =>	0,								//Number of payments to be paid.  Set to 0 to continue until deactivation
 		'PAYPERIOD' => 'MONT',						//Payment Frequency.  See doc above for all values
 );
+
+//You need to have a PNREF set.  Check URL Param first
+if(isset($_GET['PNREF']) || isset($_GET['BAID']) ) {
+	if(isset($_GET['PNREF']))
+		$variables['ORIGID'] = $_GET['PNREF'];
+	else {
+		$variables['BAID'] = $_GET['BAID'];
+		$variables['TENDER'] = 'P';
+	}
+}
+else
+	die('You need to set a PNREF or BAID');
 
 //Place the variables onto the stack
 $rb->pushVariables($variables);

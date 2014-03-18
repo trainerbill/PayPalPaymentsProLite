@@ -7,6 +7,7 @@ class PayFlowAPI {
 	protected $hosted_endpoint;
 	protected $environment;
 	protected $validation_parameters;
+	protected $timeout;
 	
 	//Call Variables
 	protected $call_credentials;
@@ -22,7 +23,9 @@ class PayFlowAPI {
 		{
 			include __DIR__.'/../config/config.php';
 		}
-
+		//Set timeout
+		$this->timeout = $config['timeout'];
+		
 		$this->environment = $config['environment'];
 		if($config['environment'] == 'production')
 		{
@@ -37,6 +40,7 @@ class PayFlowAPI {
 		$this->setCredentials($config['credentials']);
 		
 		$this->call_variables['VERBOSITY'] = 'HIGH';
+		//$this->call_variables['MODE'] = 'TEST';
 		
 	}
 	
@@ -134,11 +138,11 @@ class PayFlowAPI {
 	{
 		$string = '';
 		foreach($this->call_credentials as $key => $value)
-			$string .= $key . '=' . $value . '&';
+			$string .= $key . '['.strlen($value).']=' . $value . '&';
 		foreach($this->call_variables as $key => $value)
-			$string .= $key . '=' . $value . '&';
+			$string .= $key . '['.strlen($value).']=' . $value . '&';
 		//Always set VERBOSITY = HIGH
-		$string.='VERBOSITY=HIGH';
+		//$string.='VERBOSITY=HIGH';
 		$this->call_query = $string;
 		return $string;
 	}
@@ -185,6 +189,8 @@ class PayFlowAPI {
 		curl_setopt ($ch, CURLOPT_SSL_VERIFYPEER, false);
 		curl_setopt ($ch, CURLOPT_SSL_VERIFYHOST, false);
 		curl_setopt ($ch, CURLOPT_RETURNTRANSFER, true);
+		curl_setopt($ch, CURLOPT_CONNECTTIMEOUT ,0);
+		curl_setopt($ch, CURLOPT_TIMEOUT, $this->timeout); //timeout in seconds
 		$this->call_response =  curl_exec($ch);		//Execute the API Call
 		$this->decodeReturn();
 		

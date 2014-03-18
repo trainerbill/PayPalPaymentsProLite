@@ -17,7 +17,7 @@ $variables = array(
 
 		//Set userid as custom field
 		'CUSTOM' => 'This is a test',
-
+		'COMMENT1'  => 'This should be the comment & okie doke =  field',
 		//Line Items
 		'L_NAME0' => 'Test Item',
 		'L_DESC0' => 'Teset ITem desc',

@@ -13,7 +13,7 @@ $variables = array(
 		'CVV2' => '111',
 		
 		'AMT' => '100.00',
-		'CURRENCYCODE' => 'USD',
+		'CURRENCYCODE' => 'CAD',
 
 		//Set userid as custom field
 		'CUSTOM' => 'This is a test',

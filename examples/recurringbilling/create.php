@@ -14,7 +14,8 @@ $variables = array(
 		'PROFILENAME'=>'MyRecurringProfileName',	//Name this something unique to the customer
 		'START' => date('mdY',strtotime('+1month')),//Start in one month
 		'TERM'  =>	0,								//Number of payments to be paid.  Set to 0 to continue until deactivation
-		'PAYPERIOD' => 'MONT',						//Payment Frequency.  See doc above for all values
+		'PAYPERIOD' => 'YEAR',						//Payment Frequency.  See doc above for all values
+		
 );
 
 //Place the variables onto the stack

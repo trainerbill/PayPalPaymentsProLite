@@ -124,7 +124,7 @@ class PayFlowAPITest extends \PHPUnit_Framework_TestCase
 		
 		$pf->pushVariables($variables);
 		$string = $pf->getApiString();
-		$this->assertEquals('PARTNER=PayPal&VENDOR=andrewawesome&USER=website&PWD=test1234&VERBOSITY=HIGH&TEST=ME&OKIE=dokie&VERBOSITY=HIGH',$string);
+		$this->assertEquals('PARTNER[6]=PayPal&VENDOR[13]=andrewawesome&USER[7]=website&PWD[8]=test1234&VERBOSITY[4]=HIGH&TEST[2]=ME&OKIE[5]=dokie&',$string);
 	}
 	
 	public function testDecodeReturn()

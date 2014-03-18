@@ -12,9 +12,9 @@ $variables = array(
 		'CURRENCYCODE' => 'USD',
 		
 		//URLS
-		'RETURNURL' => 'http://'.$_SERVER['HTTP_HOST'].'/PayPalPaymentsProLite/examples/hosted/layoutc/success.php',
-		'CANCELURL' => 'http://'.$_SERVER['HTTP_HOST'].'/PayPalPaymentsProLite/examples/hosted/layoutc/cancel.php',
-		'ERRORURL' => 'http://'.$_SERVER['HTTP_HOST'].'/PayPalPaymentsProLite/examples/hosted/layoutc/error.php',
+		'RETURNURL' => 'http://'.$_SERVER['HTTP_HOST'].preg_replace('/layoutc.php/','success.php',$_SERVER['SCRIPT_NAME']),
+		'CANCELURL' => 'http://'.$_SERVER['HTTP_HOST'].preg_replace('/layoutc.php/','cancel.php',$_SERVER['SCRIPT_NAME']),
+		'ERRORURL' => 'http://'.$_SERVER['HTTP_HOST'].preg_replace('/layoutc.php/','error.php',$_SERVER['SCRIPT_NAME']),
 
 );
 

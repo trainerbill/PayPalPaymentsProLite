@@ -2,10 +2,17 @@
 
 <div class="row">
 	<div class="col-md-12">
-		<h3>Direct Payment Examples</h3>
+		<h3>Direct Credit Card Payment Examples</h3>
 		<div><a href="directpayments/sale.php">Sale Transaction</a></div>
 		<div><a href="directpayments/authorization.php">Authorization Transaction</a></div>
 		<div><a href="directpayments/upload.php">Upload/Save and Reference Transaction</a></div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-md-12">
+		<h3>Direct ACH Payment Examples</h3>
+		<div><a href="directpayments/ach/sale.php">Sale Transaction</a></div>
 	</div>
 </div>
 

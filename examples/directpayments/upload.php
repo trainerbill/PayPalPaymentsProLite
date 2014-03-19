@@ -1,92 +1,50 @@
 <?php
-
 include('../../src/DirectPayments/UploadTransaction.php');
-use PayPalPaymentsProLite\DirectPayments\UploadTransaction as UploadTransaction;
-include('../../src/DirectPayments/ReferenceTransaction.php');
-use PayPalPaymentsProLite\DirectPayments\ReferenceTransaction as ReferenceTransaction;
+use PayPalPaymentsProLite\DirectPayments\UploadTransaction;
 
-$dcc = new ReferenceTransaction();
-$dcu = new UploadTransaction();
+$dcc = new UploadTransaction();
 
 
 //Place any variables into this array:  https://www.paypalobjects.com/webstatic/en_US/developer/docs/pdf/payflowgateway_guide.pdf
-
-/* store/upload the card info */
-
 $variables = array(
-                //Credit card number from getcreditcardnumbers.com
-                'ACCT' => '4532372117409864',
-                //Expiration date.  Any date in the future
-                'EXPDATE' => '1120'
+		//Credit card number from getcreditcardnumbers.com
+		'ACCT' => '4532372117409864',
+		//Expiration date.  Any date in the future
+		'EXPDATE' => '1120',
+		
 );
 
 //Place the variables onto the stack
-$dcu->pushVariables($variables);
+$dcc->pushVariables($variables);
 
 //Execute the Call via CURL
-$dcu->executeCall();
+$dcc->executeCall();
+
+//Get Submit String
+$sstring = $dcc->getCallQuery();
+
+//Submitted Variables
+$svars = $dcc->getCallVariables();
 
 //Get the response decoded into an array
-$uresponse = $dcu->getCallResponseDecoded();
-
-/* PayPal PNREF ID */
-$pnref = $uresponse['PNREF'];
+$rvars = $dcc->getCallResponseDecoded();
 
 //Get the raw response
-$ustring = $dcu->getCallResponse();
+$rstring = $dcc->getCallResponse();
 
-/* Charge using the stored card using a Reference Transaction */
+//Get Endpoint
+$endpoint = $dcc->getCallEndpoint();
 
-$variables = array(
-        'ORIGID' => $pnref,             /* paypal id PNREF */
-        'TRXTYPE' => 'S',               /* S=Sale,A=Authorization */
-        'AMT' => 19.95,
-        'CURRENCYCODE' => 'USD',
-        'CUSTOM' => 'The Test Payment'
-);
-$dcc->pushVariables($variables);
-$dcc->executeCall();
-$response = $dcc->getCallResponseDecoded();
-
-
+include(__DIR__.'/../inc/header.php');
+include(__DIR__.'/../inc/apicalloutput.php');
 ?>
 
-<h3>Submitted</h3>
+<div class="row">
+	<div class="col-md-12">
+		<a class="btn btn-default" href="../index.php">Back to home</a>
+		<a class="btn btn-default" href="reference.php?PNREF=<?php echo $rvars['PNREF'] ?>">Do Reference Transaction</a>
+		
+	</div>
+</div>
 
-<p>Store (Upload)</p>
-<div style="max-width:800px;word-wrap:break-word;">curl -i <?php echo $dcu->getCallEndpoint() ?> -d "<?php echo $dcc->getCallQuery() ?>" </div>
-
-<p>Sale (Reference)</p>
-<div style="max-width:800px;word-wrap:break-word;">curl -i <?php echo $dcc->getCallEndpoint() ?> -d "<?php echo $dcc->getCallQuery() ?>" </div>
-
-<h3>Return String</h3>
-
-<p>Store (Upload)</p>
-
-<div style="max-width:800px;word-wrap:break-word;"><?php echo $dcu->getCallResponse() ?></div>
-
-<p>Sale (Reference)</p>
-<div style="max-width:800px;word-wrap:break-word;"><?php echo $dcc->getCallResponse() ?></div>
-
-<h3>Return Decoded</h3>
-
-<p>Store (Upload)</p>
-<pre>
-<?php
-$decoded = $dcu->getCallResponseDecoded();
-print_r($decoded);
-?>
-</pre>
-
-<p>Sale (Reference)</p>
-<pre>
-<?php
-$decoded = $dcc->getCallResponseDecoded();
-print_r($decoded);
-?>
-</pre>
-
-
-<a href="reference.php?PNREF=<?php echo $decoded['PNREF'] ?>">Do Reference Transaction</a>
-
-
+<?php include(__DIR__.'/../inc/footer.php');?>

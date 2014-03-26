@@ -25,6 +25,9 @@ $variables = array(
 		'L_TAXAMT0' => '10.00',
 		'L_QTY0'	=> '1',
 		'L_AMT0' => '100.00',
+		
+		//Set custom to define process flow.
+		'CUSTOM' => 'BillingAgreement'
 );
 
 //Place the variables onto the stack

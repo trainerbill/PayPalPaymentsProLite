@@ -66,5 +66,8 @@ include(__DIR__.'/../inc/apicalloutput.php');
 		<?php if($getresponse['CUSTOM'] == 'RB'):?>
 		<a class="btn btn-default" href="../recurringbilling/convert.php?BAID=<?php echo $rvars['BAID'] ?>">Create Recurring Billing Profile</a>
 		<?php endif; ?>
+		<?php if($getresponse['CUSTOM'] == 'BillingAgreement'):?>
+		<a class="btn btn-default" href="../directpayments/reference.php?BAID=<?php echo $rvars['BAID'] ?>">Do Reference Transaction</a>
+		<?php endif; ?>
 	</div>
 </div>

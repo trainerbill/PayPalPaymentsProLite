@@ -8,6 +8,7 @@ class PayFlowAPI {
 	protected $environment;
 	protected $validation_parameters;
 	protected $timeout;
+	public $expresscheckout_settings;
 	
 	//Call Variables
 	protected $call_credentials;
@@ -39,8 +40,11 @@ class PayFlowAPI {
 		}
 		$this->setCredentials($config['credentials']);
 		
+		//Set EC settings
+		$this->expresscheckout_settings = $config['expresscheckout'];
+		
 		$this->call_variables['VERBOSITY'] = 'HIGH';
-		//$this->call_variables['MODE'] = 'TEST';
+		
 		
 	}
 	

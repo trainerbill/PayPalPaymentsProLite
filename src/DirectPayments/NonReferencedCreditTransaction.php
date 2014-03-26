@@ -2,21 +2,19 @@
 namespace PayPalPaymentsProLite\DirectPayments;
 include_once(__DIR__.'/../PayFlowAPI.php');
 use PayPalPaymentsProLite\PayFlowAPI;
-class ReferenceTransaction extends PayFlowAPI{
+class NonReferencedCreditTransaction extends PayFlowAPI{
 
-	
-	
 	public function __construct($config = null)
 	{
 		$this->validation_parameters = array(
 
-			'AMT',
-			//'ORIGID',
+			'ACCT',
+			'EXPDATE',
 			'TRXTYPE',
-			'TENDER',	
+			'TENDER',
 		);
 		
-		$this->call_variables['TRXTYPE'] = 'S';
+		$this->call_variables['TRXTYPE'] = 'C';
 		$this->call_variables['TENDER'] = 'C';
 		
 		

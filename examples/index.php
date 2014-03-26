@@ -5,6 +5,7 @@
 		<h3>Direct Credit Card Payment Examples</h3>
 		<div><a href="directpayments/sale.php">Sale Transaction</a></div>
 		<div><a href="directpayments/authorization.php">Authorization Transaction</a></div>
+		<div><a href="directpayments/nonreferencedcredit.php">Non Referenced Credit Transaction</a></div>
 		<div><a href="directpayments/upload.php">Upload/Save and Reference Transaction</a></div>
 	</div>
 </div>

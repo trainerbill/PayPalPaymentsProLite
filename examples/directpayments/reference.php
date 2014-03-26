@@ -5,8 +5,7 @@ $dcc = new ReferenceTransaction();
 
 //Place any variables into this array:  https://www.paypalobjects.com/webstatic/en_US/developer/docs/pdf/payflowgateway_guide.pdf
 $variables = array(
-		//Get the PNREF from original transaction
-		'ORIGID' => $_GET['PNREF'],
+		
 		'TRXTYPE' => 'S',	//Set to A for authorization
 		
 		'AMT' => '100.00',
@@ -20,6 +19,22 @@ $variables = array(
 		'L_DESC0' => 'Teset ITem desc',
 		'L_AMT0' => '100.00',
 );
+
+if(isset($_GET['PNREF'])) {
+	//Get the PNREF from original transaction
+	$variables['ORIGID'] = $_GET['PNREF'];
+}
+else if(isset($_GET['BAID'])){
+	//Get the BAID from original transaction
+	$variables['BAID'] = $_GET['BAID'];
+	//Overwrite tender to P
+	$variables['TENDER'] = 'P';
+	//ADD action DoEC
+	$variables['ACTION'] = 'D';
+}
+else {
+	die('You must set ORIGID or BAID');
+}
 
 //Place the variables onto the stack
 $dcc->pushVariables($variables);

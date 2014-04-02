@@ -27,7 +27,7 @@ class DoExpressCheckoutTest extends \PHPUnit_Framework_TestCase
 		$setec = new SetExpressCheckout();
 		$variables = array(
 				'TRXTYPE'=>'S',
-				'CURRENCYCODE' => 'USD',
+				'CURRENCY' => 'USD',
 				'RETURNURL' => 'http://localhost',
 				'CANCELURL' => 'http://localhost',
 				'AMT'	=> '12.00'

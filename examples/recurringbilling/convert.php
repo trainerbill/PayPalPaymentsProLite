@@ -10,7 +10,7 @@ $variables = array(
 		
 		
 		'AMT' => '100.00',
-		'CURRENCYCODE' => 'USD',
+		'CURRENCY' => 'USD',
 		'PROFILENAME'=>'MyRecurringProfileName',	//Name this something unique to the customer
 		'START' => date('mdY',strtotime('+1month')),//Start in one month
 		'TERM'  =>	0,								//Number of payments to be paid.  Set to 0 to continue until deactivation

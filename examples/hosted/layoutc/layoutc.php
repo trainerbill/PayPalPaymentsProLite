@@ -9,7 +9,7 @@ $variables = array(
 		
 		'TRXTYPE' => 'S',
 		'AMT' => '100.00',
-		'CURRENCYCODE' => 'USD',
+		'CURRENCY' => 'USD',
 		
 		//URLS
 		'RETURNURL' => 'http://'.$_SERVER['HTTP_HOST'].preg_replace('/layoutc.php/','success.php',$_SERVER['SCRIPT_NAME']),

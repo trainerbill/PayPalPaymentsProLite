@@ -28,7 +28,7 @@ class SetExpressCheckoutBMLTest extends \PHPUnit_Framework_TestCase
 		$setec = new SetExpressCheckoutBML();
 		$variables = array(
 				'TRXTYPE'=>'S',
-				'CURRENCYCODE' => 'USD',
+				'CURRENCY' => 'USD',
 				'RETURNURL' => 'http://localhost',
 				'CANCELURL' => 'http://localhost',
 				'AMT'	=> '12.00'

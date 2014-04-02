@@ -15,7 +15,7 @@ class SetExpressCheckout extends PayFlowAPI{
 			'ACTION',
 			'TRXTYPE',
 			'TENDER',
-			'CURRENCYCODE',
+			'CURRENCY',
 			'RETURNURL',
 			'CANCELURL'
 		);

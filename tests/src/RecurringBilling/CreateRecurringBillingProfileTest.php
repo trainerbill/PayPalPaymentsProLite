@@ -30,7 +30,7 @@ class CreateRecurringBillingProfileTest extends \PHPUnit_Framework_TestCase
 			'EXPDATE' => '1120',						
 			'CVV2' => '111',							
 			'AMT' => '100.00',
-			'CURRENCYCODE' => 'USD',
+			'CURRENCY' => 'USD',
 			'PROFILENAME'=>'MyRecurringProfileName',	
 			'START' => date('mdY',strtotime('+1month')),
 			'TERM'  =>	0,								

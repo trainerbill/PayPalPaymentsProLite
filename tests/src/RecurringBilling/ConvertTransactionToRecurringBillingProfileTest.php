@@ -39,7 +39,7 @@ class ConvertTransactionToRecurringBillingProfileTest extends \PHPUnit_Framework
 		$variables = array(
 			'ORIGID' => $response['PNREF'],						
 			'AMT' => '100.00',
-			'CURRENCYCODE' => 'USD',
+			'CURRENCY' => 'USD',
 			'PROFILENAME'=>'MyRecurringProfileName',	
 			'START' => date('mdY',strtotime('+1month')),
 			'TERM'  =>	0,								

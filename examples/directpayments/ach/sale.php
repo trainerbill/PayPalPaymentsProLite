@@ -17,7 +17,7 @@ $variables = array(
 		'TENDER' => 'A',
 		
 		'AMT' => '10.00',
-		'CURRENCYCODE' => 'USD',
+		'CURRENCY' => 'USD',
 
 		//Set userid as custom field
 		'CUSTOM' => 'This is a test',

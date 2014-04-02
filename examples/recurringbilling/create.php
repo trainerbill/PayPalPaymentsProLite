@@ -10,11 +10,12 @@ $variables = array(
 		'EXPDATE' => '1120',						//Expiration date.  Any date in the future
 		'CVV2' => '111',							//CVV2 Code
 		'AMT' => '100.00',
-		'CURRENCYCODE' => 'USD',
+		'CURRENCY' => 'USD',
 		'PROFILENAME'=>'MyRecurringProfileName',	//Name this something unique to the customer
 		'START' => date('mdY',strtotime('+1month')),//Start in one month
 		'TERM'  =>	0,								//Number of payments to be paid.  Set to 0 to continue until deactivation
 		'PAYPERIOD' => 'YEAR',						//Payment Frequency.  See doc above for all values
+		'COMMENT1' => 'test 1'
 		
 );
 
@@ -45,6 +46,7 @@ include(__DIR__.'/../inc/apicalloutput.php');
 <div class="row">
 	<div class="col-md-12">
 		<a class="btn btn-default" href="../index.php">Back to home</a>
+		<a class="btn btn-default" href="modify.php?PROFILEID=<?php echo $rvars['PROFILEID'] ?>">Modify Profile</a>
 		<a class="btn btn-default" href="cancel.php?PROFILEID=<?php echo $rvars['PROFILEID'] ?>">Cancel Profile</a>
 	</div>
 </div>

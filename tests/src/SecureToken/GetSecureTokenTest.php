@@ -26,7 +26,7 @@ class GetSecureTokenTest extends \PHPUnit_Framework_TestCase
 		$variables = array(
 			'TRXTYPE' => 'S',
 			'AMT' => '100.00',
-			'CURRENCYCODE' => 'USD',
+			'CURRENCY' => 'USD',
 			
 			//URLS
 			'RETURNURL' => 'http://localhost',

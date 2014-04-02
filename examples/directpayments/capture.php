@@ -9,7 +9,7 @@ $variables = array(
 		'ORIGID' => $_GET['PNREF'],
 		
 		'AMT' => '100.00',
-		'CURRENCYCODE' => 'USD',
+		'CURRENCY' => 'USD',
 
 		//Set userid as custom field
 		'CUSTOM' => 'This is a test',

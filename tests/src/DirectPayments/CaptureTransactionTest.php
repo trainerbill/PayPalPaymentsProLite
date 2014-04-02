@@ -38,7 +38,7 @@ class CaptureTest extends \PHPUnit_Framework_TestCase
 		$variables = array(
 			'ORIGID' => $response['PNREF'],
 			'AMT' => '3.00',
-			'CURRENCYCODE' => 'USD',
+			'CURRENCY' => 'USD',
 		);
 		$capture->pushVariables($variables);
 		$capture->executeCall();

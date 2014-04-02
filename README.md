@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/trainerbill/PayPalPaymentsProLite.png?branch=master)](https://travis-ci.org/trainerbill/PayPalPaymentsProLite)
 
-PayPayPaymentsProLite
+PayPalPaymentsProLite
 ==========================
 This tutorial is provided "AS-IS" with no warranty.  YOU (the developer) would need to ensure that your code works well with your own platform, and that you are handling data securely
 

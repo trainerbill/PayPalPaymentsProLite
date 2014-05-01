@@ -27,7 +27,9 @@ $variables = array(
 		'L_AMT0' => '100.00',
 		
 		//Set custom to define process flow.
-		'CUSTOM' => 'BillingAgreement'
+		'CUSTOM' => 'BillingAgreement',
+		'_TRAILER_PASSTHROUGH__' => 'Y',
+		'NOTETOBUYER' => 'Note test'
 );
 
 //Place the variables onto the stack

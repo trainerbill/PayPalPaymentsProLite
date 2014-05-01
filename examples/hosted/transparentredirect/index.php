@@ -10,6 +10,7 @@ $variables = array(
 		'TRXTYPE' => 'S',
 		'AMT' => '100.00',
 		'CURRENCY' => 'USD',
+		'TENDER' => 'C',
 		
 		//URLS
 		'RETURNURL' => 'http://'.$_SERVER['HTTP_HOST'].preg_replace('/index.php/','success.php',$_SERVER['SCRIPT_NAME']),
@@ -60,13 +61,14 @@ include(__DIR__.'/../../inc/header.php');
 
 <div class="well">
 	<!-- Use Secure Token to POST to Payflow -->
-	<form action="https://payflowlink.paypal.com" method="post">
+	<form action="<?php echo $gettok->getHostedEndpoint() ?>" method="post">
 		
 		<label for="ACCT">Card Number</label> <input name="ACCT" type="text" value="4532989784912829" /> <br/>
 		<label for="EXPDATE">Expiration Date</label> <input name="EXPDATE" type="text" value="1120" /> <br/>
 		<label for="CVV2">CVV2</label> <input name="CVV2" type="text" value="111" /> <br/>
 		<input name="SECURETOKEN" type="hidden" value="<?php echo $rvars['SECURETOKEN'] ?>" /> <br/>
 		<input name="SECURETOKENID" type="hidden" value="<?php echo $rvars['SECURETOKENID'] ?>" /> <br/>
+		
 		<input type="submit" />
 	</form>
 </div>

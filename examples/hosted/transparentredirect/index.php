@@ -54,7 +54,7 @@ include(__DIR__.'/../../inc/header.php');
 ?>
 <div class="alert alert-danger">
 	<h3>You must setup your manager account</h3>
-	<div>In order to use the hosted layout you must setup your manager account properly. <a href="../instructions.php?layout=c">Instructions</a></div>
+	<div>In order to use the hosted layout you must setup your manager account properly. <a href="../instructions.php?layout=transparent">Instructions</a></div>
 </div>
 
 <?php include(__DIR__.'/../../inc/apicalloutput.php'); ?>

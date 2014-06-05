@@ -1,14 +1,3 @@
-<script type="text/javascript">
-    (function(d, s, id){
-      var js, ref = d.getElementsByTagName(s)[0];
-      if (!d.getElementById(id)){
-        js = d.createElement(s); js.id = id; js.async = true;
-        js.src = "//www.paypalobjects.com/js/external/paypal.js";
-        ref.parentNode.insertBefore(js, ref);
-      }
-    }(document, "script", "paypal-js"));
-</script>
-
 <div class="row">
 	<div class="col-md-12">
 		<h3>Curl Call</h3>

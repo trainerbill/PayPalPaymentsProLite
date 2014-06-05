@@ -23,7 +23,7 @@ $config = array(
 	
 	//Express Checkout Configuration
 	'expresscheckout' => array(
-			'experience' => 'redirect',		//Values are "redirect" for the classic redirect or "lightbox" for lightbox
+			'experience' => 'redirect',		//Values are "redirect" for the classic redirect or "minibrowser" for minibrowser
 			'useraction' => 'confirm',		//Values are "confirm" and "commit".  Confirm is recommended.  Commit is a PayNow process and executes the DoCall without redirect.
 	),
 	'timeout' => 90, 	//CURL timeout in seconds

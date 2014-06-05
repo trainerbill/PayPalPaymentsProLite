@@ -54,10 +54,22 @@ $endpoint = $setec->getCallEndpoint();
 include(__DIR__.'/../../inc/header.php');
 include(__DIR__.'/../../inc/apicalloutput.php');
 ?>
-<div class="row">
-	<div class="col-md-12">
-		<a class="btn btn-default" href="../index.php">Back to home</a>
-		<a href="https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&useraction=<?php echo $setec->expresscheckout_settings['useraction'] ?>&token=<?php echo $rvars['TOKEN'] ?>"><img src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" /></a>
-	</div>
-</div>
+<?php if($setec->expresscheckout_settings['experience'] == 'redirect'):?>
+<a href="https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&useraction=<?php echo $setec->expresscheckout_settings['useraction'] ?>&token=<?php echo $rvars['TOKEN'] ?>"><img src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" /></a>
+<?php elseif($setec->expresscheckout_settings['experience'] == 'minibrowser'): ?>
+<script type="text/javascript">
+        (function (d, s, id) {
+            var js,
+                ref = d.getElementsByTagName(s)[0];
+            if (!d.getElementById(id)) {
+                js = d.createElement(s);
+                js.id = id;
+                js.async = true;
+                js.src = "//www.paypalobjects.com/js/external/checkout.dev.js";
+                ref.parentNode.insertBefore(js, ref);
+            }
+        }(document, "script", "paypal-js"));
+</script>
+<a href="https://www.sandbox.paypal.com/checkoutnow?token=<?php echo $rvars['TOKEN']?>" data-paypal-button="true"><img src="https://www.paypal.com/en_US/i/btn/btn_xpressCheckout.gif" /></a>
+<?php endif;?>
 <?php include(__DIR__.'/../../inc/footer.php');?>

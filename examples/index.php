@@ -20,6 +20,7 @@
 <div class="row">
 	<div class="col-md-12">
 		<h3>Hosted Solutions</h3>
+		<div><a href="hosted/layoutb/layoutb.php">Full Redirect - Layout B</a></div>
 		<div><a href="hosted/layoutc/layoutc.php">Iframe Integration - Layout C</a></div>
 		<div><a href="hosted/transparentredirect">Transparent Redirect</a></div>
 	</div>

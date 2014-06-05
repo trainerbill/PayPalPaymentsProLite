@@ -46,4 +46,19 @@
 			</div>
 		</div>
 	<?php endif;?>
+	<?php if($_GET['layout'] == 'b'):?>
+		<div class="row well well-sm">
+			<div class="col-md-12">
+				<h3>Customize the layout</h3>
+				<ul>
+					<li>Login to <a target="_blank" href="http://manager.paypal.com">manager.paypal.com</a></li>
+					<li>Click Service Settings</li>
+					<li>Click Customize under hosted checkout pages</li>
+					<li>Select Layout B</li>
+					<li>Save and Publish</li>
+				</ul>
+				<img class="img-responsive" src="../img/LayoutBcustomize.png" alt="Layout C Customize image" />
+			</div>
+		</div>
+	<?php endif;?>
 <?php include(__DIR__.'/../inc/footer.php');?>
